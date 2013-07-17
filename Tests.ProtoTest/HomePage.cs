@@ -16,8 +16,8 @@ namespace Tests.ProtoTest
         [Test]
         public void foo()
         {
-            
-            ProtoTest_Home.NavtoProtoTest(envUrl, 700).clickHome(envUrl);
+
+            ProtoTest_Home.NavtoProtoTest(envUrl, 700).VerifyContent_PC(envUrl);
 
         }
     }

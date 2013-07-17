@@ -9,7 +9,7 @@ using MbUnit.Framework;
 
 namespace PageObjects.ProtoTest
 {
-    public class ProtoTest_Home : Golem.Framework.BasePageObject
+    public class ProtoTest_Home : ProtoTest_ALL_HeaderFooter
     {
 
         Element ProtoTest_Logo = new Element("ProtoTest_Logo", By.XPath("//*[@id='logo']/a"));
@@ -21,15 +21,27 @@ namespace PageObjects.ProtoTest
             return new ProtoTest_Home();
         }
 
-        public ProtoTest_Home clickHome(string url)
+        public ProtoTest_Home VerifyContent_PC(string url)
         {
             ProtoTest_Logo.WaitUntilPresent();
-            
-            //ProtoTest_Logo.FindElements(By.TagName("a"));
             string ProtoTestHomeLink = ProtoTest_Logo.GetAttribute("href");
             Assert.AreEqual(url, ProtoTestHomeLink);
             return new ProtoTest_Home();
         }
+
+        public ProtoTest_Home VerifyContent_Tablet()
+        {
+            
+            return new ProtoTest_Home();
+        }
+
+        public ProtoTest_Home VerifyContent_Mobile()
+        {
+            
+            return new ProtoTest_Home();
+        }
+
+
 
         public override void WaitForElements()
         {
