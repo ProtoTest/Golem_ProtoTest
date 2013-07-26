@@ -17,7 +17,7 @@ namespace Tests.ProtoTest
         [Test]
         public void foo()
         {
-            //Firefox wide width: 1064 Medium 752 - 1063 Small <752
+            //Firefox wide width: >= 1064 Medium 752 - 1063 Small <= 752
             ProtoTest_Home.NavtoProtoTest(envUrl, 1064).VerifyContent_PC(envUrl).ClickWhatWeDo();
             Thread.Sleep(3000);
         }

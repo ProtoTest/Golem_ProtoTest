@@ -11,10 +11,10 @@ namespace PageObjects.ProtoTest
 {
     public class ProtoTest_Home : ProtoTest_ALL_HeaderFooter
     {
+        Element PeopleSlide = new Element("People_Slide", By.Id("slide-text"));
+        Element HowWeHelp_button = new Element("HowWeHelp_Button", By.LinkText("How We Help");
+        Element StartAProject_button = new Element("StartAProjct_button", By.LinkText("Start a project");
 
-        Element ProtoTest_Logo = new Element("ProtoTest_Logo", By.XPath("//*[@id='logo']/a"));
-        Element WhatWeDo_Header = new Element("WhatWeDo_Header", By.LinkText("What We Do"));
-        Element WWD_Menu_MobileTesting = new Element("MobileTestingButton", By.Id("menu-item-69"));
 
         public static ProtoTest_Home NavtoProtoTest(string url, int width)
         {
@@ -56,7 +56,8 @@ namespace PageObjects.ProtoTest
 
         public override void WaitForElements()
         {
-            ProtoTest_Logo.WaitUntilPresent();
+            base.WaitForElements();
+
         }
 
     }
