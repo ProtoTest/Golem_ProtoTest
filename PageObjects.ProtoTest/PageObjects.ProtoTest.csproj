@@ -54,9 +54,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProtoTest_Social_Blog.cs" />
+    <Compile Include="ProtoTest_Company_Careers.cs" />
+    <Compile Include="ProtoTest_Company_ContactUs.cs" />
+    <Compile Include="ProtoTest_Company_History.cs" />
+    <Compile Include="ProtoTest_ALL_HeaderFooter.cs" />
+    <Compile Include="ProtoTest_Company_Team.cs" />
     <Compile Include="ProtoTest_Home.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtoTest_Services_MobileTesting.cs" />
     <Compile Include="ProtoTest_Navigation_Overlay.cs" />
+    <Compile Include="ProtoTest_Services_Staffing.cs" />
+    <Compile Include="ProtoTest_Services_WhitePapers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Golem\Golem.Framework\Golem.Framework.csproj">
