@@ -11,9 +11,10 @@ namespace PageObjects.ProtoTest
 {
     public class ProtoTest_Home : ProtoTest_ALL_HeaderFooter
     {
+
         Element PeopleSlide = new Element("People_Slide", By.Id("slide-text"));
-        Element HowWeHelp_button = new Element("HowWeHelp_Button", By.LinkText("How We Help");
-        Element StartAProject_button = new Element("StartAProjct_button", By.LinkText("Start a project");
+        Element HowWeHelp_button = new Element("HowWeHelp_Button", By.LinkText("How We Help"));
+        Element StartAProject_button = new Element("StartAProjct_button", By.LinkText("Start a project"));
 
 
         public static ProtoTest_Home NavtoProtoTest(string url, int width)
@@ -25,38 +26,34 @@ namespace PageObjects.ProtoTest
 
         public ProtoTest_Home VerifyContent_PC(string url)
         {
-            ProtoTest_Logo.WaitUntilPresent();
-            string ProtoTestHomeLink = ProtoTest_Logo.GetAttribute("href");
+            string ProtoTestHomeLink = PT_Logo.GetAttribute("href");
             Assert.AreEqual(url, ProtoTestHomeLink);
-            string somestring = Wide_Logo.GetCssValue("Height");
-            return new ProtoTest_Home();
-        }
-
-        public ProtoTest_Services_MobileTesting ClickWhatWeDo()
-        {
-            WhatWeDo_Header.WaitUntilPresent().Click();
-            WWD_Menu_MobileTesting.WaitUntilPresent().Click();
-            return new ProtoTest_Services_MobileTesting();
-
-        }
-
-        public ProtoTest_Home VerifyContent_Tablet()
-        {
             
             return new ProtoTest_Home();
         }
 
-        public ProtoTest_Home VerifyContent_Mobile()
+        public ProtoTest_Navigation_Overlay OpenNavigationMenu()
         {
+            string size = ScreenSize(windowWidth);
+            if((size == SMALL) || (size == MEDIUM))
+            {
+                Medium_MainMenu.WaitUntilPresent().Click();
+            }
+            else
+            {
+                Wide_WhatWeDo.WaitUntilPresent().Click();
+            }
             
-            return new ProtoTest_Home();
+            return new ProtoTest_Navigation_Overlay();
         }
 
-
-
+        
         public override void WaitForElements()
         {
             base.WaitForElements();
+            PeopleSlide.VerifyVisible();
+            HowWeHelp_button.VerifyVisible();
+            
 
         }
 

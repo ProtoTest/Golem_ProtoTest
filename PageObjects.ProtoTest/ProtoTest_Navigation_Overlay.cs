@@ -5,10 +5,11 @@ using System.Text;
 using Golem.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using MbUnit.Framework;
 
 namespace PageObjects.ProtoTest
 {
-    public class ProtoTest_Navigation_Overlay : Golem.Framework.BasePageObject
+    public class ProtoTest_Navigation_Overlay : ProtoTest_ALL_HeaderFooter
     {
         public Element NavigationOverlay = new Element("NavigationOverlay", By.Id("menu-services"));
         public Element CloseOverlay = new Element("CloseOverLay_button", By.XPath("//*[@id='overlay']/section/div/a"));
@@ -39,22 +40,67 @@ namespace PageObjects.ProtoTest
 
 
         //Dimentions of buttons
-        public string Wide_button_width_min = "228px";
-        public string Wide_button_width_max = "283px";
-        public string Wide_button_height_max = "30px";
+        public int Wide_button_width_min = 228;
+        public int Wide_button_width_max = 283;
+        public int Wide_button_height_max = 30;
 
-        public string Medium_button_width_min = "144px";
-        public string Medium_button_width_max = "227px";
-        public string Medium_button_height_min = "30px";
-        public string Medium_button_height_max = "60px";
+        public int Medium_button_width_min = 144;
+        public int Medium_button_width_max = 227;
+        public int Medium_button_height_min = 30;
+        public int Medium_button_height_max = 60;
 
-        public string small_button_height = "18px";
+        public int small_button_height = 18;
 
+        //button array
+        private List<Element> NavigationButtons;
 
+        public ProtoTest_Navigation_Overlay()
+        {
+            NavigationButtons = new List<Element>();
+            NavigationButtons.Add(MobileTesting_button);
+            NavigationButtons.Add(WebTesting_button);
+            NavigationButtons.Add(ITStaffing_button);
+            NavigationButtons.Add(CaseStudies_button);
+            NavigationButtons.Add(WhitePapers_button);
+            NavigationButtons.Add(Blog_Button);
+            NavigationButtons.Add(History_Button);
+            NavigationButtons.Add(Team_Button);
+            NavigationButtons.Add(Partners_Button);
+            NavigationButtons.Add(Careers_Button);
+            NavigationButtons.Add(MapAddress_button);
+        }
+        
 
         public override void WaitForElements()
         {
             
+            NavigationOverlay.VerifyVisible();
+            if (ScreenSize(windowWidth) == SMALL)
+            {
+                for (int i = 0; i < NavigationButtons.Count; i++)
+                {
+                    Assert.Between(NavigationButtons[i].Size.Width, Wide_button_width_min, Wide_button_width_max);
+                    Assert.AreEqual(Wide_button_height_max, NavigationButtons[i].Size.Height);
+                }
+            }
+            if (ScreenSize(windowWidth) == MEDIUM)
+            {
+                for (int i = 0; i < NavigationButtons.Count; i++)
+                {
+                    Assert.Between(NavigationButtons[i].Size.Width, Medium_button_width_min, Medium_button_width_max);
+                }
+            }
+            if (ScreenSize(windowWidth) == LARGE)
+            {
+                for (int i = 0; i < NavigationButtons.Count; i++)
+                {
+                    Assert.AreEqual(small_button_height, NavigationButtons[i].Size.Height);
+                }
+            }
+            eMail_Link.VerifyVisible();
+            eMailAddress_text.VerifyVisible();
+            comment_text.VerifyVisible();
+            EmailSubmit_button.VerifyVisible();            
         }
     }
 }
