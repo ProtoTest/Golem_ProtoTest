@@ -97,10 +97,10 @@ namespace PageObjects.ProtoTest
                     Assert.AreEqual(small_button_height, NavigationButtons[i].Size.Height);
                 }
             }
-            eMail_Link.VerifyVisible();
-            eMailAddress_text.VerifyVisible();
-            comment_text.VerifyVisible();
-            EmailSubmit_button.VerifyVisible();            
+            eMail_Link.WaitUntilPresent(); ;
+            eMailAddress_text.WaitUntilPresent();
+            comment_text.WaitUntilPresent();
+            EmailSubmit_button.WaitUntilPresent();          
         }
     }
 }

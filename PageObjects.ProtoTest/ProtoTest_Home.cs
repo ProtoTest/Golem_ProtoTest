@@ -12,9 +12,8 @@ namespace PageObjects.ProtoTest
     public class ProtoTest_Home : ProtoTest_ALL_HeaderFooter
     {
 
-        Element PeopleSlide = new Element("People_Slide", By.Id("slide-text"));
-        Element HowWeHelp_button = new Element("HowWeHelp_Button", By.LinkText("How We Help"));
-        Element StartAProject_button = new Element("StartAProjct_button", By.LinkText("Start a project"));
+        Element PeopleSlide = new Element("People_Slide", By.XPath("//*[@id='main']/section/ul/li/div/div/h2"));
+        Element HowWeHelp_button = new Element("HowWeHelp_Button", By.XPath("//*[@id='main']/section/ul/li/div/div/p"));        
 
 
         public static ProtoTest_Home NavtoProtoTest(string url, int width)
@@ -51,8 +50,8 @@ namespace PageObjects.ProtoTest
         public override void WaitForElements()
         {
             base.WaitForElements();
-            PeopleSlide.VerifyVisible();
-            HowWeHelp_button.VerifyVisible();
+            PeopleSlide.WaitUntilPresent();
+            HowWeHelp_button.WaitUntilPresent();
             
 
         }

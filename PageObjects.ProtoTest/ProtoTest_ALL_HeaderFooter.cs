@@ -13,6 +13,7 @@ namespace PageObjects.ProtoTest
         public const string SMALL = "SMALL";
         public const string MEDIUM = "MEDIUM";
         public const string LARGE = "LARGE";
+        public int MAX_LOADTIME = Config.Settings.runTimeSettings.ElementTimeoutSec;
 
         //Window sizes for responsive design
         public int windowWidth = TestBaseClass.driver.Manage().Window.Size.Width; //get current window size
@@ -23,7 +24,7 @@ namespace PageObjects.ProtoTest
         public const int WIDE_WIDTH_MIN = 1064;
 
         //Header Stuff
-        public Element PT_Logo = new Element("Wide_logo", By.Id("logo"));
+        public Element PT_Logo = new Element("Wide_logo", By.XPath("//*[@id='logo']/a"));
         public int Wide_Logo_Height = 108;
         public int Wide_Logo_Width = 139;
         public int Small_Logo_Height = 23;
@@ -41,11 +42,11 @@ namespace PageObjects.ProtoTest
         public Element All_WeHeartDenver = new Element("All_WeHeartDenver", By.XPath("//footer/div/section/"));
         public Element All_PTInfo = new Element("All_PTInfo", By.XPath("//footer/div/section[2]/div/div/div/p"));
         public Element All_PTContact = new Element("All_PTContact", By.XPath("//footer/div/section[2]/div/div/div[2]"));
-        public Element All_LinkedIN = new Element("All_LinkedIN", By.LinkText("http://www.linkedin.com/company/prototest"));
-        public Element All_Twitter = new Element("All_Twitter", By.LinkText("https://twitter.com/prototest"));
-        public Element All_Facebook = new Element("All_Facebook", By.LinkText("https://www.facebook.com/ProtoTest"));
+        public Element All_LinkedIN = new Element("All_LinkedIN", By.XPath("//footer/div/section[2]/div/div/div[3]/ul/li/a"));
+        public Element All_Twitter = new Element("All_Twitter", By.XPath("//footer/div/section[2]/div/div/div[3]/ul/li[2]/a"));
+        public Element All_Facebook = new Element("All_Facebook", By.XPath("//footer/div/section[2]/div/div/div[3]/ul/li[3]/a"));
         public Element All_RSSFeed = new Element("All_RSSfeed", By.XPath("//footer/div/section[2]/div/div/div[3]/ul/li[4]"));
-        public Element All_email = new Element("All_MailTo", By.LinkText("mailto:info@prototest.com"));
+        public Element All_email = new Element("All_MailTo", By.XPath("//footer/div/section[2]/div/div/div[3]/ul/li[5]/a"));
 
         public string ScreenSize(int size)
         {
@@ -71,38 +72,40 @@ namespace PageObjects.ProtoTest
             {
                 Assert.AreEqual(Wide_Logo_Height, PT_Logo.Size.Height);
                 Assert.AreEqual(Wide_Logo_Width, PT_Logo.Size.Width);
-                Wide_WhatWeDo.VerifyVisible();
-                Wide_WhoWeAre.VerifyVisible();
-                Wide_GetInTouch.VerifyVisible();
-                Wide_StartAProject.VerifyVisible();
+                Wide_StartAProject.VerifyNotVisible(MAX_LOADTIME);
+                Wide_WhatWeDo.VerifyNotVisible(MAX_LOADTIME);
+                Wide_WhoWeAre.VerifyNotVisible(MAX_LOADTIME);
+                Wide_GetInTouch.VerifyNotVisible(MAX_LOADTIME);
+                Medium_MainMenu.VerifyVisible(MAX_LOADTIME);             
+                
             }
             if(ScreenSize(windowWidth) == MEDIUM)
             {
                 Assert.AreEqual(Wide_Logo_Height, PT_Logo.Size.Height);
                 Assert.AreEqual(Wide_Logo_Width, PT_Logo.Size.Width);
-                Wide_WhatWeDo.VerifyNotVisible();
-                Wide_WhoWeAre.VerifyNotVisible();
-                Wide_GetInTouch.VerifyNotVisible();
-                Wide_StartAProject.VerifyNotVisible();
-                Medium_MainMenu.VerifyVisible();
+                Medium_MainMenu.VerifyVisible(MAX_LOADTIME);
+                Wide_StartAProject.VerifyVisible(MAX_LOADTIME);
+                Wide_WhatWeDo.VerifyNotVisible(MAX_LOADTIME);
+                Wide_WhoWeAre.VerifyNotVisible(MAX_LOADTIME);
+                Wide_GetInTouch.VerifyNotVisible(MAX_LOADTIME);
             }
             if(ScreenSize(windowWidth) == LARGE)
             {
                 Assert.AreEqual(Small_Logo_Height, PT_Logo.Size.Height);
                 Assert.AreEqual(Small_Logo_Width, PT_Logo.Size.Width);
-                Wide_WhatWeDo.VerifyNotVisible();
-                Wide_WhoWeAre.VerifyNotVisible();
-                Wide_GetInTouch.VerifyNotVisible();
-                Wide_StartAProject.VerifyNotVisible();
-                Medium_MainMenu.VerifyVisible();
+                Wide_WhatWeDo.VerifyVisible(MAX_LOADTIME);
+                Wide_WhoWeAre.VerifyVisible(MAX_LOADTIME);
+                Wide_GetInTouch.VerifyVisible(MAX_LOADTIME);
+                Wide_StartAProject.VerifyVisible(MAX_LOADTIME);
+                Medium_MainMenu.VerifyNotVisible(MAX_LOADTIME);
             }
             //All_WeHeartDenver.VerifyVisible();
-            All_PTInfo.VerifyVisible();
-            All_PTContact.VerifyVisible();
-            All_LinkedIN.VerifyVisible();
-            All_Facebook.VerifyVisible();
-            All_RSSFeed.VerifyVisible();
-            All_email.VerifyVisible();
+            All_PTInfo.VerifyVisible(MAX_LOADTIME);
+            All_PTContact.VerifyVisible(MAX_LOADTIME);
+            All_LinkedIN.VerifyVisible(MAX_LOADTIME);
+            All_Facebook.VerifyVisible(MAX_LOADTIME);
+            All_RSSFeed.VerifyVisible(MAX_LOADTIME);
+            All_email.VerifyVisible(MAX_LOADTIME);
         }
     }
 }
