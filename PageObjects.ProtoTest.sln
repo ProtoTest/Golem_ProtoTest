@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageObjects.ProtoTest", "PageObjects.ProtoTest\PageObjects.ProtoTest.csproj", "{22A2C997-9430-4C14-910F-A340194F0FC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Golem.Framework", "..\Golem\Golem.Framework\Golem.Framework.csproj", "{DABFC1CB-7C18-4AC7-AFA2-91C453E9E266}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.ProtoTest", "Tests.ProtoTest\Tests.ProtoTest.csproj", "{AD8B4861-E6AD-4107-80AB-8FCADC710A84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{161DE9CA-3035-48F2-8A0A-A2741EA65729}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +22,6 @@ Global
 		{22A2C997-9430-4C14-910F-A340194F0FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22A2C997-9430-4C14-910F-A340194F0FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22A2C997-9430-4C14-910F-A340194F0FC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DABFC1CB-7C18-4AC7-AFA2-91C453E9E266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DABFC1CB-7C18-4AC7-AFA2-91C453E9E266}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DABFC1CB-7C18-4AC7-AFA2-91C453E9E266}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DABFC1CB-7C18-4AC7-AFA2-91C453E9E266}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD8B4861-E6AD-4107-80AB-8FCADC710A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AD8B4861-E6AD-4107-80AB-8FCADC710A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD8B4861-E6AD-4107-80AB-8FCADC710A84}.Release|Any CPU.ActiveCfg = Release|Any CPU

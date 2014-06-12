@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Golem.Framework;
+using ProtoTest.Golem.WebDriver;
+using ProtoTest.Golem.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using MbUnit.Framework;
@@ -74,7 +75,7 @@ namespace PageObjects.ProtoTest
         public override void WaitForElements()
         {
             
-            NavigationOverlay.VerifyVisible();
+            NavigationOverlay.Verify().Visible();
             if (ScreenSize(windowWidth) == SMALL)
             {
                 for (int i = 0; i < NavigationButtons.Count; i++)
@@ -97,10 +98,10 @@ namespace PageObjects.ProtoTest
                     Assert.AreEqual(small_button_height, NavigationButtons[i].Size.Height);
                 }
             }
-            eMail_Link.WaitUntilPresent(); ;
-            eMailAddress_text.WaitUntilPresent();
-            comment_text.WaitUntilPresent();
-            EmailSubmit_button.WaitUntilPresent();          
+            eMail_Link.WaitUntil().Present();
+            eMailAddress_text.WaitUntil().Present();
+            comment_text.WaitUntil().Present();
+            EmailSubmit_button.WaitUntil().Present();
         }
     }
 }

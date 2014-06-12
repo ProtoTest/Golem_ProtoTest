@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using Golem.Framework;
+using ProtoTest.Golem.WebDriver;
 using OpenQA.Selenium;
 using MbUnit.Framework;
 
@@ -12,14 +12,13 @@ namespace PageObjects.ProtoTest
     public class ProtoTest_Home : ProtoTest_ALL_HeaderFooter
     {
 
-        Element PeopleSlide = new Element("People_Slide", By.XPath("//*[@id='main']/section/ul/li/div/div/h2"));
-        Element HowWeHelp_button = new Element("HowWeHelp_Button", By.XPath("//*[@id='main']/section/ul/li/div/div/p"));        
-
+        //Element PeopleSlide = new Element("People_Slide", By.XPath("//*[@id='main']/section/ul/li/div/div/h2"));
+        Element HowWeHelp_button = new Element("HowWeHelp_Button", By.XPath("//*[@id='main']/section/ul/li/div/div/p"));
 
         public static ProtoTest_Home NavtoProtoTest(string url, int width)
         {
-            TestBaseClass.driver.Manage().Window.Size = new Size(width, 1080);
-            TestBaseClass.driver.Navigate().GoToUrl(url);
+            WebDriverTestBase.driver.Manage().Window.Size = new Size(width, 1080);
+            WebDriverTestBase.driver.Navigate().GoToUrl(url);
             return new ProtoTest_Home();
         }
 
@@ -36,22 +35,27 @@ namespace PageObjects.ProtoTest
             string size = ScreenSize(windowWidth);
             if((size == SMALL) || (size == MEDIUM))
             {
-                Medium_MainMenu.WaitUntilPresent().Click();
+                Medium_MainMenu.WaitUntil().Present().Click();
             }
             else
             {
-                Wide_WhatWeDo.WaitUntilPresent().Click();
+                Wide_WhatWeDo.WaitUntil().Present().Click();
             }
             
             return new ProtoTest_Navigation_Overlay();
+        }
+
+        public void VerifyHeaderLogoOnHomePage()
+        {
+            PT_Logo.Verify().Visible();
         }
 
         
         public override void WaitForElements()
         {
             base.WaitForElements();
-            PeopleSlide.WaitUntilPresent();
-            HowWeHelp_button.WaitUntilPresent();
+            //PeopleSlide.WaitUntil().Present();
+            //HowWeHelp_button.WaitUntil().Present();
             
 
         }

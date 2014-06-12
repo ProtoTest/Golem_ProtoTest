@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Golem.Framework;
+//using ProtoTest.Golem;
+using ProtoTest.Golem;
 using OpenQA.Selenium;
 using MbUnit.Framework;
 
