@@ -103,7 +103,6 @@ namespace PageObjects.ProtoTest
                 Wide_WhoWeAre.Verify().Visible();
                 Wide_GetInTouch.Verify().Visible();
                 Wide_StartAProject.Verify().Visible();
-                Medium_MainMenu.Verify().Not().Visible();
             }
             //All_WeHeartDenver.Verify().Visible();
             //All_PTInfo.Verify().Visible();
