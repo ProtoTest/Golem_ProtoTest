@@ -16,13 +16,13 @@ namespace Tests.ProtoTest
     {
         private string envUrl = Config.GetConfigValue("EnvironmentUrl", "http://www.prototest.com/");
 
-        [Test]
-        public void foo()
-        {
-            //Firefox wide width: >= 1064 Medium 752 - 1063 Small <= 752
-            ProtoTest_Home.NavtoProtoTest(envUrl, 1064).VerifyContent_PC(envUrl).OpenNavigationMenu();
-            Thread.Sleep(3000);
-        }
+        //[Test]
+        //public void foo()
+        //{
+        //    //Firefox wide width: >= 1064 Medium 752 - 1063 Small <= 752
+        //    ProtoTest_Home.NavtoProtoTest(envUrl, 1064).VerifyContent_PC(envUrl).OpenNavigationMenu();
+        //    Thread.Sleep(3000);
+        //}
 
         [Test]
         public void VerifyProtTestSiteIsUp()
