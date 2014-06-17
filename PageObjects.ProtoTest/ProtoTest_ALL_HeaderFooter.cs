@@ -60,7 +60,7 @@ namespace PageObjects.ProtoTest
             {
                 theSize = MEDIUM;
             }
-            if((windowWidth <= SMALL_WIDTH_MAX))
+            if (windowWidth >= WIDE_WIDTH_MIN)
             {
                 theSize = LARGE;
             }
@@ -76,8 +76,8 @@ namespace PageObjects.ProtoTest
         {
             if(ScreenSize(windowWidth) == SMALL)
             {
-                Assert.AreEqual(Wide_Logo_Height, PT_Logo.Size.Height, "failed to verify wide_logo_height_small = PT_logo_size_height");
-                Assert.AreEqual(Wide_Logo_Width, PT_Logo.Size.Width, "failed to verify wide_logo_height_small = PT_logo_size_height");
+                Assert.AreEqual(Small_Logo_Height, PT_Logo.Size.Height, "failed to verify small_logo_height_small = PT_logo_size_height");
+                Assert.AreEqual(Small_Logo_Width, PT_Logo.Size.Width, "failed to verify small_logo_height_small = PT_logo_size_height");
                 Wide_StartAProject.Verify().Not().Visible();
                 Wide_WhatWeDo.Verify().Not().Visible();
                 Wide_WhoWeAre.Verify().Not().Visible();
@@ -97,8 +97,8 @@ namespace PageObjects.ProtoTest
             }
             if(ScreenSize(windowWidth) == LARGE)
             {
-                Assert.AreEqual(Small_Logo_Height, PT_Logo.Size.Height, "failed to verify Small_logo_height_large = PT_logo_size_height");
-                Assert.AreEqual(Small_Logo_Width, PT_Logo.Size.Width, "failed to verify Small_logo_width_large = PT_logo_size_width");
+                Assert.AreEqual(Wide_Logo_Height, PT_Logo.Size.Height, "failed to verify wide_logo_height_large = PT_logo_size_height");
+                Assert.AreEqual(Wide_Logo_Width, PT_Logo.Size.Width, "failed to verify wide_logo_width_large = PT_logo_size_width");
                 Wide_WhatWeDo.Verify().Visible();
                 Wide_WhoWeAre.Verify().Visible();
                 Wide_GetInTouch.Verify().Visible();
