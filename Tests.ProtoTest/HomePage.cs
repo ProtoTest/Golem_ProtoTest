@@ -9,7 +9,6 @@ using PageObjects.ProtoTest;
 using MbUnit.Framework;
 using OpenQA.Selenium;
 using System.Threading;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.ProtoTest
 {
@@ -25,7 +24,6 @@ namespace Tests.ProtoTest
             Thread.Sleep(3000);
         }
 
-        [TestCategory("SiteTest")]
         [Test]
         public void VerifyProtTestSiteIsUp()
         {

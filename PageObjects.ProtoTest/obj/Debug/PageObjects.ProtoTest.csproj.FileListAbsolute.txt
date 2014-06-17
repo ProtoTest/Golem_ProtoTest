@@ -15,6 +15,6 @@ C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\bin\Debug\C
 C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\bin\Debug\WebDriver.xml
 C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\bin\Debug\WebDriver.Support.xml
 C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\bin\Debug\NHamcrest.pdb
+C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\obj\Debug\PageObjects.ProtoTest.csprojResolveAssemblyReference.cache
 C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\obj\Debug\PageObjects.ProtoTest.dll
 C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\obj\Debug\PageObjects.ProtoTest.pdb
-C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\PageObjects.ProtoTest\obj\Debug\PageObjects.ProtoTest.csprojResolveAssemblyReference.cache
