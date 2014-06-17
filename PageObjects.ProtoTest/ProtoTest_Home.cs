@@ -33,7 +33,7 @@ namespace PageObjects.ProtoTest
         public ProtoTest_Navigation_Overlay OpenNavigationMenu()
         {
             string size = ScreenSize(windowWidth);
-            if((size == SMALL) || (size == MEDIUM))
+            if ((size == SMALL) || (size == MEDIUM))
             {
                 Medium_MainMenu.WaitUntil().Present().Click();
             }
@@ -41,7 +41,7 @@ namespace PageObjects.ProtoTest
             {
                 Wide_WhatWeDo.WaitUntil().Present().Click();
             }
-            
+
             return new ProtoTest_Navigation_Overlay();
         }
 
@@ -50,15 +50,15 @@ namespace PageObjects.ProtoTest
             PT_Logo.Verify().Visible();
         }
 
-        
-        public override void WaitForElements()
-        {
-            base.WaitForElements();
-            //PeopleSlide.WaitUntil().Present();
-            //HowWeHelp_button.WaitUntil().Present();
-            
 
-        }
+        //public override void WaitForElements()
+        //{
+        //    //base.WaitForElements();
+        //    //PeopleSlide.WaitUntil().Present();
+        //    //HowWeHelp_button.WaitUntil().Present();
+
+
+        //}
 
     }
 }
