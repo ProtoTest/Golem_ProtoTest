@@ -26,7 +26,7 @@ namespace PageObjects.ProtoTest
 
         //Header Stuff
         public Element PT_Logo = new Element("Wide_logo", By.XPath("//*[@id='logo']/a"));
-        public int Wide_Logo_Height = 108;
+        public int Wide_Logo_Height = 101;
         public int Wide_Logo_Width = 139;
         public int Small_Logo_Height = 23;
         public int Small_Logo_Width = 130;
