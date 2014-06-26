@@ -32,7 +32,7 @@ namespace PageObjects.ProtoTest
 
         public ProtoTest_Navigation_Overlay OpenNavigationMenu()
         {
-            string size = ScreenSize(windowWidth);
+            string size = ScreenSize();
             if ((size == SMALL) || (size == MEDIUM))
             {
                 Medium_MainMenu.WaitUntil().Present().Click();

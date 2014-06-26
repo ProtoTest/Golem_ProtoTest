@@ -49,22 +49,26 @@ namespace PageObjects.ProtoTest
         public Element All_RSSFeed = new Element("All_RSSfeed", By.XPath("//footer/div/section[2]/div/div/div[3]/ul/li[4]"));
         public Element All_email = new Element("All_MailTo", By.XPath("//footer/div/section[2]/div/div/div[3]/ul/li[5]/a"));
 
-        public string ScreenSize(int size)
+        public string ScreenSize()
         {
-            string theSize = "";
-            if(size <= SMALL_WIDTH_MAX)
+            Common.Log("Inside ScreenSize with windowWidth=" + windowWidth);
+
+            if (windowWidth <= SMALL_WIDTH_MAX)
             {
-                theSize = SMALL;
+                return SMALL;
             }
-            if((windowWidth >= MEDIUM_WIDTH_MIN) && (windowWidth <= MEDIUM_WIDTH_MAX))
+            else if((windowWidth >= MEDIUM_WIDTH_MIN) && (windowWidth <= MEDIUM_WIDTH_MAX))
             {
-                theSize = MEDIUM;
+                return MEDIUM;
             }
-            if (windowWidth >= WIDE_WIDTH_MIN)
+            else if (windowWidth >= WIDE_WIDTH_MIN)
             {
-                theSize = LARGE;
+                return LARGE;
             }
-            return theSize;
+            else
+            {
+                throw new Exception("Unhandled windowWidth size");
+            }
         }
 
         public void VerifyHeaderLoads()
@@ -74,7 +78,7 @@ namespace PageObjects.ProtoTest
 
         public override void WaitForElements()
         {
-            if(ScreenSize(windowWidth) == SMALL)
+            if(ScreenSize() == SMALL)
             {
                 Assert.AreEqual(Small_Logo_Height, PT_Logo.Size.Height, "failed to verify small_logo_height_small = PT_logo_size_height");
                 Assert.AreEqual(Small_Logo_Width, PT_Logo.Size.Width, "failed to verify small_logo_height_small = PT_logo_size_height");
@@ -85,7 +89,7 @@ namespace PageObjects.ProtoTest
                 Medium_MainMenu.Verify().Visible();
                 
             }
-            if(ScreenSize(windowWidth) == MEDIUM)
+            else if(ScreenSize() == MEDIUM)
             {
                 Assert.AreEqual(Wide_Logo_Height, PT_Logo.Size.Height, "failed to verify wide_logo_height_medium = PT_logo_size_height");
                 Assert.AreEqual(Wide_Logo_Width, PT_Logo.Size.Width, "failed to verify wide_logo_height_medium = PT_logo_size_height");
@@ -95,7 +99,7 @@ namespace PageObjects.ProtoTest
                 Wide_WhoWeAre.Verify().Not().Visible();
                 Wide_GetInTouch.Verify().Not().Visible();
             }
-            if(ScreenSize(windowWidth) == LARGE)
+            else if(ScreenSize() == LARGE)
             {
                 Assert.AreEqual(Wide_Logo_Height, PT_Logo.Size.Height, "failed to verify wide_logo_height_large = PT_logo_size_height");
                 Assert.AreEqual(Wide_Logo_Width, PT_Logo.Size.Width, "failed to verify wide_logo_width_large = PT_logo_size_width");

@@ -76,7 +76,7 @@ namespace PageObjects.ProtoTest
         {
             
             NavigationOverlay.Verify().Visible();
-            if (ScreenSize(windowWidth) == SMALL)
+            if (ScreenSize() == SMALL)
             {
                 for (int i = 0; i < NavigationButtons.Count; i++)
                 {
@@ -84,14 +84,14 @@ namespace PageObjects.ProtoTest
                     Assert.AreEqual(Wide_button_height_max, NavigationButtons[i].Size.Height);
                 }
             }
-            if (ScreenSize(windowWidth) == MEDIUM)
+            if (ScreenSize() == MEDIUM)
             {
                 for (int i = 0; i < NavigationButtons.Count; i++)
                 {
                     Assert.Between(NavigationButtons[i].Size.Width, Medium_button_width_min, Medium_button_width_max);
                 }
             }
-            if (ScreenSize(windowWidth) == LARGE)
+            if (ScreenSize() == LARGE)
             {
                 for (int i = 0; i < NavigationButtons.Count; i++)
                 {
