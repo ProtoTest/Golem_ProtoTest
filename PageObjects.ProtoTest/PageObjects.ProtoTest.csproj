@@ -66,6 +66,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewPageObjects\ContactPage.cs" />
+    <Compile Include="NewPageObjects\Footer.cs" />
+    <Compile Include="NewPageObjects\Global.cs" />
+    <Compile Include="NewPageObjects\Header.cs" />
+    <Compile Include="NewPageObjects\HomePage.cs" />
+    <Compile Include="NewPageObjects\ServicesPage.cs" />
     <Compile Include="ProtoTest_Social_Blog.cs" />
     <Compile Include="ProtoTest_Company_Careers.cs" />
     <Compile Include="ProtoTest_Company_ContactUs.cs" />
@@ -92,6 +98,7 @@
     </Content>
     <Content Include="IEDriverServer.exe" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

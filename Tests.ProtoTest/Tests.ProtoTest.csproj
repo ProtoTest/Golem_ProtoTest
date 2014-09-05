@@ -66,8 +66,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomePage.cs" />
+    <Compile Include="ContactPageTests.cs" />
+    <Compile Include="HomePageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesPageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PageObjects.ProtoTest\PageObjects.ProtoTest.csproj">
