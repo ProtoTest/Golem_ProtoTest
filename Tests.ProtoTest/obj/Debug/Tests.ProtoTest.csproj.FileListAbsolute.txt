@@ -22,7 +22,6 @@ C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\obj\Debug\Tests.P
 C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\obj\Debug\Tests.ProtoTest.dll
 C:\Users\Adan\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\obj\Debug\Tests.ProtoTest.pdb
 C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\chromedriver-license.txt
-C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\chromedriver.exe
 C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Tests.ProtoTest.dll.config
 C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Tests.ProtoTest.dll
 C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Tests.ProtoTest.pdb
@@ -44,3 +43,17 @@ C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\NHamcr
 C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\obj\Debug\Tests.ProtoTest.csprojResolveAssemblyReference.cache
 C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\obj\Debug\Tests.ProtoTest.dll
 C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\obj\Debug\Tests.ProtoTest.pdb
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Proxy\browsermob-proxy-2.0-beta-8-bin.zip
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Ionic.Zip.dll
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\NHunspell.dll
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\nunit.framework.dll
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\RestSharp.dll
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Ionic.Zip.xml
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\NHunspell.pdb
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\NHunspell.xml
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\nunit.framework.xml
+C:\Users\Brian\Documents\GitHub\Golem_ProtoTest\Tests.ProtoTest\bin\Debug\RestSharp.xml
