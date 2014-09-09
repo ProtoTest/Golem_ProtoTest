@@ -19,12 +19,12 @@ namespace PageObjects.ProtoTest.NewPageObjects
     {
         string currentUrl = WebDriverTestBase.driver.Url;
 
-        public Element Services_Label = new Element("Services_Label", By.XPath("//*[@id='main']/section[1]/div/h1"));
-        public Element Functional_Testing_Label = new Element("Functional_Testing_Label", By.XPath("//*[@id='service']/div/div/div[1]/div/div[1]/h3"));
-        public Element Test_Automation_Label = new Element("Test_Automation_Label", By.XPath("//*[@id='service']/div/div/div[2]/div/div[1]/h3"));
-        public Element Usability_Testing_Label = new Element("Usability_Testing_Label", By.XPath("//*[@id='service']/div/div/div[3]/div/div[1]/h3"));
-        public Element Performance_Testing_Label = new Element("Performance_Testing_Label", By.XPath("//*[@id='service']/div/div/div[4]/div/div[1]/h3"));
-        public Element Accessibility_Testing_Label = new Element("Accessibility_Testing_Label", By.XPath("//*[@id='service']/div/div/div[5]/div/div[1]/h3"));
+        public Element Services_Label = new Element("Services_Label", By.XPath("//h1[contains(.,'Services')]"));
+        public Element Functional_Testing_Label = new Element("Functional_Testing_Label", By.XPath("//h3[contains(.,'Functional Testing')]"));
+        public Element Test_Automation_Label = new Element("Test_Automation_Label", By.XPath("//h3[contains(.,'Test Automation')]"));
+        public Element Usability_Testing_Label = new Element("Usability_Testing_Label", By.XPath("//h3[contains(.,'Usability Testing')]"));
+        public Element Performance_Testing_Label = new Element("Performance_Testing_Label", By.XPath("//h3[contains(.,'Performance Testing')]"));
+        public Element Accessibility_Testing_Label = new Element("Accessibility_Testing_Label", By.XPath("//h3[contains(.,'Accessibility Testing')]"));
 
         public ServicesPage VerifyFunctionalTestingServiceDisplayed()
         {

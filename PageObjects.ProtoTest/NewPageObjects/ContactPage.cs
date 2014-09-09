@@ -12,7 +12,7 @@ namespace PageObjects.ProtoTest.NewPageObjects
 {
     public class ContactPage : BasePageObject
     {
-        Element lblContact = new Element("Contact Label", By.XPath("//*[@id='main']/section[1]/div/h1"));
+        Element lblContact = new Element("Contact Label", By.XPath("//h1[contains(.,'Contact')]"));
         Element boxName = new Element("Your_Name_Text_Box", By.Id("ninja_forms_field_9"));
         Element boxEmail = new Element("Email_Text_Box", By.Id("ninja_forms_field_8"));
         Element boxMessage = new Element("Quick_Message_Text_Box", By.Id("ninja_forms_field_2"));

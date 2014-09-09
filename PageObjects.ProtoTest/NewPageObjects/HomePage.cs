@@ -15,17 +15,17 @@ namespace PageObjects.ProtoTest.NewPageObjects
     /// </summary>
     public class HomePage : Global
     {
-        public Element Functional_Testing_Label = new Element("Functional_Testing_Label", By.XPath("//*[@id='main']/section[2]/div/div/div[1]/h3/a"));
-        public Element Functional_Testing_Button = new Element("Functional_Testing_Button", By.XPath("//*[@id='main']/section[2]/div/div/div[1]/p[2]/a"));
+        public Element Functional_Testing_Label = new Element("Functional_Testing_Label", By.LinkText("Functional Testing"));
+        public Element Functional_Testing_Button = new Element("Functional_Testing_Button", By.XPath("//a[contains(@title,'functional')]"));
 
-        public Element Test_Automation_Label = new Element("Test_Automation_Label", By.XPath("//*[@id='main']/section[2]/div/div/div[2]/h3/a"));
-        public Element Test_Automation_Button = new Element("Test_Automation_Button", By.XPath("//*[@id='main']/section[2]/div/div/div[2]/p[2]/a"));
+        public Element Test_Automation_Label = new Element("Test_Automation_Label", By.LinkText("Test Automation"));
+        public Element Test_Automation_Button = new Element("Test_Automation_Button", By.XPath("//a[contains(@title,'automation')]"));
 
-        public Element Usability_Testing_Label = new Element("Usability_Testing_Label", By.XPath("//*[@id='main']/section[3]/div/div/div[1]/h3/a"));
-        public Element Usability_Testing_Button = new Element("Usablity_Testing_Button", By.XPath("//*[@id='main']/section[3]/div/div/div[1]/p[2]/a"));
+        public Element Usability_Testing_Label = new Element("Usability_Testing_Label", By.LinkText("Usability Testing"));
+        public Element Usability_Testing_Button = new Element("Usablity_Testing_Button", By.XPath("//a[contains(@title,'usability testing')]"));
 
-        public Element Performance_Testing_Label = new Element("Performance_Testing_Label", By.XPath("//*[@id='main']/section[3]/div/div/div[2]/h3/a"));
-        public Element Performance_Testing_Button = new Element("Performance_Testing_Button", By.XPath("//*[@id='main']/section[3]/div/div/div[2]/p[2]/a"));
+        public Element Performance_Testing_Label = new Element("Performance_Testing_Label", By.LinkText("Performance Testing"));
+        public Element Performance_Testing_Button = new Element("Performance_Testing_Button", By.XPath("//a[contains(@title,'performance testing')]"));
 
         public HomePage VerifyPracticeAreaLabelsDisplayed()
         {
