@@ -12,9 +12,10 @@ namespace PageObjects.ProtoTest.NewPageObjects
 {
     public class Header : BasePageObject
     {
-        public Link lnkWhatWeDo = new Link(By.Id("menu-item-1445"));
-        public Link lnkContact = new Link(By.Id("menu-item-70"));
-        public Link lnkWhoWeAre = new Link(By.Id("menu-item-71"));
+        public Element lnkWhatWeDo = new Element(By.LinkText("What We Do"));
+        public Element lnkContact = new Element(By.LinkText("Contact"));
+        public Element lnkWhoWeAre = new Element(By.LinkText("Who We Are"));
+        public Element lnkWhatWeThink = new Element(By.LinkText("What We Think"));
 
         public Header VerifyWhatWeDoLinkDisplayed()
         {
@@ -40,6 +41,7 @@ namespace PageObjects.ProtoTest.NewPageObjects
         {
             lnkWhoWeAre.WaitUntil().Visible();
             lnkWhatWeDo.WaitUntil().Visible();
+            lnkWhatWeThink.WaitUntil().Visible();
         }
 
     }
