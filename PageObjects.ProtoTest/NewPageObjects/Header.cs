@@ -24,8 +24,9 @@ namespace PageObjects.ProtoTest.NewPageObjects
 
         public ContactPage SelectContactMenuOption()
         {
+            Thread.Sleep(1000);
             lnkWhoWeAre.Click();
-            Thread.Sleep(10000);
+            Thread.Sleep(1000);
             lnkContact.Click();
             return new ContactPage();
         }
