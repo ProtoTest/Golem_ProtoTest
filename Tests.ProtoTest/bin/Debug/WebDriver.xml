@@ -213,6 +213,13 @@
             or if it contains a semi-colon.</exception>
       <exception cref="T:System.ArgumentNullException">If the value is <see langword="null" />.</exception>
     </member>
+    <member name="M:OpenQA.Selenium.Cookie.FromDictionary(System.Collections.Generic.Dictionary{System.String,System.Object})">
+      <summary>
+            Converts a Dictionary to a Cookie.
+            </summary>
+      <param name="rawCookie">The Dictionary object containing the cookie parameters.</param>
+      <returns>A <see cref="T:OpenQA.Selenium.Cookie" /> object with the proper parameters set.</returns>
+    </member>
     <member name="M:OpenQA.Selenium.Cookie.ToString">
       <summary>
             Creates and returns a string representation of the cookie. 
@@ -1186,6 +1193,12 @@
       <returns>An <see cref="T:OpenQA.Selenium.IWebDriver" /> instance focused on the specified frame.</returns>
       <exception cref="T:OpenQA.Selenium.NoSuchFrameException">If the element is neither a FRAME nor an IFRAME element.</exception>
       <exception cref="T:OpenQA.Selenium.StaleElementReferenceException">If the element is no longer valid.</exception>
+    </member>
+    <member name="M:OpenQA.Selenium.ITargetLocator.ParentFrame">
+      <summary>
+            Select the parent frame of the currently selected frame.
+            </summary>
+      <returns>An <see cref="T:OpenQA.Selenium.IWebDriver" /> instance focused on the specified frame.</returns>
     </member>
     <member name="M:OpenQA.Selenium.ITargetLocator.Window(System.String)">
       <summary>
@@ -2648,66 +2661,6 @@
       <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual 
             information about the source or destination.</param>
     </member>
-    <member name="T:OpenQA.Selenium.Remote.ICommandExecutor">
-      <summary>
-            Provides a way to send commands to the remote server
-            </summary>
-    </member>
-    <member name="M:OpenQA.Selenium.Remote.ICommandExecutor.Execute(OpenQA.Selenium.Remote.Command)">
-      <summary>
-            Executes a command
-            </summary>
-      <param name="commandToExecute">The command you wish to execute</param>
-      <returns>A response from the browser</returns>
-    </member>
-    <member name="T:OpenQA.Selenium.Remote.HttpCommandExecutor">
-      <summary>
-            Provides a way of executing Commands over HTTP
-            </summary>
-    </member>
-    <member name="M:OpenQA.Selenium.Remote.HttpCommandExecutor.#ctor(System.Uri,System.TimeSpan)">
-      <summary>
-            Initializes a new instance of the HttpCommandExecutor class
-            </summary>
-      <param name="addressOfRemoteServer">Address of the WebDriver Server</param>
-      <param name="timeout">The timeout within which the server must respond.</param>
-    </member>
-    <member name="M:OpenQA.Selenium.Remote.HttpCommandExecutor.#ctor(System.Uri,System.TimeSpan,System.Boolean)">
-      <summary>
-            Initializes a new instance of the HttpCommandExecutor class
-            </summary>
-      <param name="addressOfRemoteServer">Address of the WebDriver Server</param>
-      <param name="timeout">The timeout within which the server must respond.</param>
-      <param name="enableKeepAlive">
-        <see langword="true" /> if the KeepAlive header should be sent
-            with HTTP requests; otherwise, <see langword="false" />.</param>
-    </member>
-    <member name="M:OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(OpenQA.Selenium.Remote.Command)">
-      <summary>
-            Executes a command
-            </summary>
-      <param name="commandToExecute">The command you wish to execute</param>
-      <returns>A response from the browser</returns>
-    </member>
-    <member name="T:OpenQA.Selenium.Chrome.ChromeCommandExecutor">
-      <summary>
-            Provides a mechanism to execute commands on the browser
-            </summary>
-    </member>
-    <member name="M:OpenQA.Selenium.Chrome.ChromeCommandExecutor.#ctor(OpenQA.Selenium.Chrome.ChromeDriverService,System.TimeSpan)">
-      <summary>
-            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Chrome.ChromeCommandExecutor" /> class.
-            </summary>
-      <param name="driverService">The <see cref="T:OpenQA.Selenium.Chrome.ChromeDriverService" /> that drives the browser.</param>
-      <param name="commandTimeout">The maximum amount of time to wait for each command.</param>
-    </member>
-    <member name="M:OpenQA.Selenium.Chrome.ChromeCommandExecutor.Execute(OpenQA.Selenium.Remote.Command)">
-      <summary>
-            Executes a command with the ChromeDriver.
-            </summary>
-      <param name="commandToExecute">The command you wish to execute</param>
-      <returns>A response from the browser</returns>
-    </member>
     <member name="T:OpenQA.Selenium.Internal.IFindsById">
       <summary>
             Defines the interface through which the user finds elements by their ID.
@@ -3316,11 +3269,10 @@
     </member>
     <member name="M:OpenQA.Selenium.Remote.RemoteWebDriver.ConvertArgumentsToJavaScriptObjects(System.Object[])">
       <summary>
-            Converts the arguments to java script objects.
+            Converts the arguments to JavaScript objects.
             </summary>
       <param name="args">The arguments.</param>
-      <returns>
-      </returns>
+      <returns>The list of the arguments converted to JavaScript objects.</returns>
     </member>
     <member name="P:OpenQA.Selenium.Remote.RemoteWebDriver.Url">
       <summary>
@@ -3596,13 +3548,13 @@
       <summary>
             Adds arguments to be appended to the Chrome.exe command line.
             </summary>
-      <param name="arguments">An array of arguments to add.</param>
+      <param name="argumentsToAdd">An array of arguments to add.</param>
     </member>
     <member name="M:OpenQA.Selenium.Chrome.ChromeOptions.AddArguments(System.Collections.Generic.IEnumerable{System.String})">
       <summary>
             Adds arguments to be appended to the Chrome.exe command line.
             </summary>
-      <param name="arguments">An <see cref="T:System.Collections.Generic.IEnumerable`1" /> object of arguments to add.</param>
+      <param name="argumentsToAdd">An <see cref="T:System.Collections.Generic.IEnumerable`1" /> object of arguments to add.</param>
     </member>
     <member name="M:OpenQA.Selenium.Chrome.ChromeOptions.AddExcludedArgument(System.String)">
       <summary>
@@ -4297,12 +4249,6 @@
             Gets or sets the timeout to wait for Firefox to be available for command execution.
             </summary>
     </member>
-    <member name="P:OpenQA.Selenium.Firefox.FirefoxBinary.ConsoleOutput">
-      <summary>
-            Gets all console output of the binary.
-            </summary>
-      <remarks>Output retrieval is non-destructive and non-blocking.</remarks>
-    </member>
     <member name="P:OpenQA.Selenium.Firefox.FirefoxBinary.BinaryExecutable">
       <summary>
             Gets the <see cref="T:OpenQA.Selenium.Firefox.Internal.Executable" /> associated with this <see cref="T:OpenQA.Selenium.Firefox.FirefoxBinary" />.
@@ -4464,6 +4410,18 @@
       <summary>
             Gets the FirefoxProfile that is currently in use by subclasses
             </summary>
+    </member>
+    <member name="T:OpenQA.Selenium.Remote.ICommandExecutor">
+      <summary>
+            Provides a way to send commands to the remote server
+            </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.Remote.ICommandExecutor.Execute(OpenQA.Selenium.Remote.Command)">
+      <summary>
+            Executes a command
+            </summary>
+      <param name="commandToExecute">The command you wish to execute</param>
+      <returns>A response from the browser</returns>
     </member>
     <member name="T:OpenQA.Selenium.Firefox.FirefoxDriverCommandExecutor">
       <summary>
@@ -4791,21 +4749,6 @@
             </summary>
       <returns>A hash code for the current <see cref="T:OpenQA.Selenium.Firefox.FirefoxWebElement" />.</returns>
     </member>
-    <member name="T:OpenQA.Selenium.Firefox.IExtensionConnection">
-      <summary>
-            Defines the interface by which a driver connects to the WebDriver extension.
-            </summary>
-    </member>
-    <member name="M:OpenQA.Selenium.Firefox.IExtensionConnection.Start">
-      <summary>
-            Starts the connection to the extension.
-            </summary>
-    </member>
-    <member name="M:OpenQA.Selenium.Firefox.IExtensionConnection.Quit">
-      <summary>
-            Closes the connection to the extension.
-            </summary>
-    </member>
     <member name="T:OpenQA.Selenium.Firefox.Preferences">
       <summary>
             Represents the preferences used by a profile in Firefox.
@@ -5107,6 +5050,30 @@
             are attempting to run the IE driver remotely, use <see cref="T:OpenQA.Selenium.Remote.RemoteWebDriver" />
             in conjunction with a standalone WebDriver server.</remarks>
     </member>
+    <member name="T:OpenQA.Selenium.IE.InternetExplorerDriverEngine">
+      <summary>
+            Represents the valid values for driver engine available with the IEDriverServer.exe.
+            </summary>
+    </member>
+    <member name="F:OpenQA.Selenium.IE.InternetExplorerDriverEngine.Legacy">
+      <summary>
+            Represents the Legacy value, forcing the driver tu use only the open-source
+            driver engine implementation.
+            </summary>
+    </member>
+    <member name="F:OpenQA.Selenium.IE.InternetExplorerDriverEngine.AutoDetect">
+      <summary>
+            Represents the AutoDetect value, instructing the driver to use the vendor-provided
+            driver engine implementation, if available, falling back to the open-source
+            implementation, if it is not available.
+            </summary>
+    </member>
+    <member name="F:OpenQA.Selenium.IE.InternetExplorerDriverEngine.Vendor">
+      <summary>
+            Represents the Vendor value, instructing the driver to use the vendor-provided
+            driver engine implementation, and throwing an exception if it is not available.
+            </summary>
+    </member>
     <member name="T:OpenQA.Selenium.IE.InternetExplorerDriverLogLevel">
       <summary>
             Represents the valid values of logging levels available with the IEDriverServer.exe.
@@ -5189,6 +5156,11 @@
     <member name="P:OpenQA.Selenium.IE.InternetExplorerDriverService.LoggingLevel">
       <summary>
             Gets or sets the logging level used by the IEDriverServer.
+            </summary>
+    </member>
+    <member name="P:OpenQA.Selenium.IE.InternetExplorerDriverService.Implementation">
+      <summary>
+            Gets or sets the implementation to be used by the IEDriverServer.
             </summary>
     </member>
     <member name="P:OpenQA.Selenium.IE.InternetExplorerDriverService.LibraryExtractionPath">
@@ -6351,7 +6323,7 @@
             Represents a cookie returned to the driver by the browser.
             </summary>
     </member>
-    <member name="M:OpenQA.Selenium.Internal.ReturnedCookie.#ctor(System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Boolean,System.Uri)">
+    <member name="M:OpenQA.Selenium.Internal.ReturnedCookie.#ctor(System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Boolean)">
       <summary>
             Initializes a new instance of the <see cref="T:OpenQA.Selenium.Internal.ReturnedCookie" /> class with a specific name, 
             value, domain, path and expiration date.
@@ -6363,7 +6335,6 @@
       <param name="expiry">The expiration date of the cookie.</param>
       <param name="isSecure">
         <see langword="true" /> if the cookie is secure; otherwise <see langword="false" /></param>
-      <param name="currentUrl">The current <see cref="T:System.Uri" /> the browser is viewing.</param>
       <exception cref="T:System.ArgumentException">If the name is <see langword="null" /> or an empty string,
             or if it contains a semi-colon.</exception>
       <exception cref="T:System.ArgumentNullException">If the value or currentUrl is <see langword="null" />.</exception>
@@ -6373,11 +6344,6 @@
             Creates and returns a string representation of the current cookie. 
             </summary>
       <returns>A string representation of the current cookie.</returns>
-    </member>
-    <member name="P:OpenQA.Selenium.Internal.ReturnedCookie.CurrentHost">
-      <summary>
-            Gets the current URL the browser is viewing.
-            </summary>
     </member>
     <member name="P:OpenQA.Selenium.Internal.ReturnedCookie.Secure">
       <summary>
@@ -7330,6 +7296,11 @@
             Represents SwitchToFrame command
             </summary>
     </member>
+    <member name="F:OpenQA.Selenium.Remote.DriverCommand.SwitchToParentFrame">
+      <summary>
+            Represents SwitchToParentFrame command
+            </summary>
+    </member>
     <member name="F:OpenQA.Selenium.Remote.DriverCommand.GetActiveElement">
       <summary>
             Represents GetActiveElement command
@@ -7587,6 +7558,13 @@
         <see langword="true" /> if the KeepAlive header should be sent
             with HTTP requests; otherwise, <see langword="false" />.</param>
     </member>
+    <member name="M:OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(OpenQA.Selenium.Remote.Command)">
+      <summary>
+            Executes a command
+            </summary>
+      <param name="commandToExecute">The command you wish to execute</param>
+      <returns>A response from the browser</returns>
+    </member>
     <member name="T:OpenQA.Selenium.Remote.ErrorResponse">
       <summary>
             Provides a way to store errors from a response
@@ -7623,6 +7601,35 @@
       <summary>
             Gets or sets the stack trace of the error
             </summary>
+    </member>
+    <member name="T:OpenQA.Selenium.Remote.HttpCommandExecutor">
+      <summary>
+            Provides a way of executing Commands over HTTP
+            </summary>
+    </member>
+    <member name="M:OpenQA.Selenium.Remote.HttpCommandExecutor.#ctor(System.Uri,System.TimeSpan)">
+      <summary>
+            Initializes a new instance of the HttpCommandExecutor class
+            </summary>
+      <param name="addressOfRemoteServer">Address of the WebDriver Server</param>
+      <param name="timeout">The timeout within which the server must respond.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Remote.HttpCommandExecutor.#ctor(System.Uri,System.TimeSpan,System.Boolean)">
+      <summary>
+            Initializes a new instance of the HttpCommandExecutor class
+            </summary>
+      <param name="addressOfRemoteServer">Address of the WebDriver Server</param>
+      <param name="timeout">The timeout within which the server must respond.</param>
+      <param name="enableKeepAlive">
+        <see langword="true" /> if the KeepAlive header should be sent
+            with HTTP requests; otherwise, <see langword="false" />.</param>
+    </member>
+    <member name="M:OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(OpenQA.Selenium.Remote.Command)">
+      <summary>
+            Executes a command
+            </summary>
+      <param name="commandToExecute">The command you wish to execute</param>
+      <returns>A response from the browser</returns>
     </member>
     <member name="T:OpenQA.Selenium.Remote.LocalFileDetector">
       <summary>
@@ -7939,6 +7946,12 @@
             </summary>
       <param name="frameElement">a previously found FRAME or IFRAME element.</param>
       <returns>A WebDriver instance that is currently in use.</returns>
+    </member>
+    <member name="M:OpenQA.Selenium.Remote.RemoteTargetLocator.ParentFrame">
+      <summary>
+            Select the parent frame of the currently selected frame.
+            </summary>
+      <returns>An <see cref="T:OpenQA.Selenium.IWebDriver" /> instance focused on the specified frame.</returns>
     </member>
     <member name="M:OpenQA.Selenium.Remote.RemoteTargetLocator.Window(System.String)">
       <summary>

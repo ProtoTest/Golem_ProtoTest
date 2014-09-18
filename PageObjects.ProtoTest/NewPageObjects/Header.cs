@@ -16,6 +16,8 @@ namespace PageObjects.ProtoTest.NewPageObjects
         public Element lnkContact = new Element(By.LinkText("Contact"));
         public Element lnkWhoWeAre = new Element(By.LinkText("Who We Are"));
         public Element lnkWhatWeThink = new Element(By.LinkText("What We Think"));
+        public Element lnkBlog = new Element(By.LinkText("Blog"));
+        public Element lnkLetsTalkTesting = new Element(By.LinkText("Let's talk testing"));
 
         public Header VerifyWhatWeDoLinkDisplayed()
         {
@@ -23,13 +25,33 @@ namespace PageObjects.ProtoTest.NewPageObjects
             return this;
         }
 
+        public Header VerifyWhatWeThinkLinkDisplayed()
+        {
+            lnkWhatWeThink.Verify().Present();
+            return this;
+        }
+
         public ContactPage SelectContactMenuOption()
         {
-            Thread.Sleep(1000);
-            lnkWhoWeAre.Click();
-            Thread.Sleep(1000);
+
+            lnkWhoWeAre.MouseOver();
+            lnkContact.WaitUntil().Visible();
             lnkContact.Click();
             return new ContactPage();
+        }
+
+        public BlogPage SelectBlogMenuOption()
+        {
+            lnkWhatWeThink.MouseOver();
+            lnkBlog.WaitUntil().Visible();
+            lnkBlog.Click();
+            return new BlogPage();
+        }
+
+        public LetsTalkTestingPage SelectLetsTalkTestingMenuOption()
+        {
+            lnkLetsTalkTesting.Click();
+            return new LetsTalkTestingPage();
         }
 
         //public T ParentPage<T>()

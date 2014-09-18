@@ -441,6 +441,12 @@
             <param name="frameElement">a previously found FRAME or IFRAME element.</param>
             <returns>A WebDriver instance that is currently in use.</returns>
         </member>
+        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringTargetLocator.ParentFrame">
+            <summary>
+            Select the parent frame of the currently selected frame.
+            </summary>
+            <returns>An <see cref="T:OpenQA.Selenium.IWebDriver"/> instance focused on the specified frame.</returns>
+        </member>
         <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringTargetLocator.Window(System.String)">
             <summary>
             Change to the Window by passing in the name
@@ -867,6 +873,49 @@
             Marks the element so that lookups to the browser page are cached. This class cannot be inherited.
             </summary>
         </member>
+        <member name="T:OpenQA.Selenium.Support.PageObjects.DefaultElementLocatorFactory">
+            <summary>
+            A default locator for elements for use with the <see cref="T:OpenQA.Selenium.Support.PageObjects.PageFactory"/>. This locator
+            implements no retry logic for elements not being found, nor for elements being stale.
+            </summary>
+        </member>
+        <member name="T:OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory">
+            <summary>
+            Interface describing how elements are to be located by a <see cref="T:OpenQA.Selenium.Support.PageObjects.PageFactory"/>
+            </summary>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory.LocateElement(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By})">
+            <summary>
+            Locates an element using the given <see cref="T:OpenQA.Selenium.ISearchContext"/> and list of <see cref="T:OpenQA.Selenium.By"/> criteria.
+            </summary>
+            <param name="searchContext">The <see cref="T:OpenQA.Selenium.ISearchContext"/> object within which to search for an element.</param>
+            <param name="bys">The list of methods by which to search for the element.</param>
+            <returns>An <see cref="T:OpenQA.Selenium.IWebElement"/> which is the first match under the desired criteria.</returns>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory.LocateElements(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By})">
+            <summary>
+            Locates a list of elements using the given <see cref="T:OpenQA.Selenium.ISearchContext"/> and list of <see cref="T:OpenQA.Selenium.By"/> criteria.
+            </summary>
+            <param name="searchContext">The <see cref="T:OpenQA.Selenium.ISearchContext"/> object within which to search for elements.</param>
+            <param name="bys">The list of methods by which to search for the elements.</param>
+            <returns>An list of all elements which match the desired criteria.</returns>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.DefaultElementLocatorFactory.LocateElement(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By})">
+            <summary>
+            Locates an element using the given <see cref="T:OpenQA.Selenium.ISearchContext"/> and list of <see cref="T:OpenQA.Selenium.By"/> criteria.
+            </summary>
+            <param name="searchContext">The <see cref="T:OpenQA.Selenium.ISearchContext"/> object within which to search for an element.</param>
+            <param name="bys">The list of methods by which to search for the element.</param>
+            <returns>An <see cref="T:OpenQA.Selenium.IWebElement"/> which is the first match under the desired criteria.</returns>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.DefaultElementLocatorFactory.LocateElements(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By})">
+            <summary>
+            Locates a list of elements using the given <see cref="T:OpenQA.Selenium.ISearchContext"/> and list of <see cref="T:OpenQA.Selenium.By"/> criteria.
+            </summary>
+            <param name="searchContext">The <see cref="T:OpenQA.Selenium.ISearchContext"/> object within which to search for elements.</param>
+            <param name="bys">The list of methods by which to search for the elements.</param>
+            <returns>An list of all elements which match the desired criteria.</returns>
+        </member>
         <member name="T:OpenQA.Selenium.Support.PageObjects.FindsByAttribute">
             <summary>
             Marks program elements with methods by which to find a corresponding element on the page. Used
@@ -1103,6 +1152,28 @@
             <see cref="T:OpenQA.Selenium.IWebElement"/> or IList{IWebElement}.
             </exception>
         </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.PageFactory.InitElements``1(OpenQA.Selenium.IWebDriver,OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory)">
+            <summary>
+            Initializes the elements in the Page Object with the given type.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the Page Object class.</typeparam>
+            <param name="driver">The <see cref="T:OpenQA.Selenium.IWebDriver"/> instance used to populate the page.</param>
+            <param name="locatorFactory">The <see cref="T:OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory"/> implementation that
+            determines how elements are located.</param>
+            <returns>An instance of the Page Object class with the elements initialized.</returns>
+            <remarks>
+            The class used in the <typeparamref name="T"/> argument must have a public constructor
+            that takes a single argument of type <see cref="T:OpenQA.Selenium.IWebDriver"/>. This helps to enforce
+            best practices of the Page Object pattern, and encapsulates the driver into the Page
+            Object so that it can have no external WebDriver dependencies.
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            thrown if no constructor to the class can be found with a single IWebDriver argument
+            <para>-or-</para>
+            if a field or property decorated with the <see cref="T:OpenQA.Selenium.Support.PageObjects.FindsByAttribute"/> is not of type
+            <see cref="T:OpenQA.Selenium.IWebElement"/> or IList{IWebElement}.
+            </exception>
+        </member>
         <member name="M:OpenQA.Selenium.Support.PageObjects.PageFactory.InitElements(OpenQA.Selenium.ISearchContext,System.Object)">
             <summary>
             Initializes the elements in the Page Object.
@@ -1114,18 +1185,76 @@
             <see cref="T:OpenQA.Selenium.IWebElement"/> or IList{IWebElement}.
             </exception>
         </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.PageFactory.InitElements(OpenQA.Selenium.ISearchContext,System.Object,OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory)">
+            <summary>
+            Initializes the elements in the Page Object.
+            </summary>
+            <param name="driver">The driver used to find elements on the page.</param>
+            <param name="page">The Page Object to be populated with elements.</param>
+            <param name="locatorFactory">The <see cref="T:OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory"/> implementation that
+            determines how elements are located.</param>
+            <exception cref="T:System.ArgumentException">
+            thrown if a field or property decorated with the <see cref="T:OpenQA.Selenium.Support.PageObjects.FindsByAttribute"/> is not of type
+            <see cref="T:OpenQA.Selenium.IWebElement"/> or IList{IWebElement}.
+            </exception>
+        </member>
+        <member name="T:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory">
+            <summary>
+            A locator for elements for use with the <see cref="T:OpenQA.Selenium.Support.PageObjects.PageFactory"/> that retries locating
+            the element up to a timeout if the element is not found.
+            </summary>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory.#ctor(System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory"/> class.
+            </summary>
+            <param name="timeout">The <see cref="T:System.TimeSpan"/> indicating how long the locator should
+            retry before timing out.</param>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory.#ctor(System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory"/> class.
+            </summary>
+            <param name="timeout">The <see cref="T:System.TimeSpan"/> indicating how long the locator should
+            retry before timing out.</param>
+            <param name="pollingInterval">The <see cref="T:System.TimeSpan"/> indicating how often to poll
+            for the existence of the element.</param>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory.LocateElement(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By})">
+            <summary>
+            Locates an element using the given <see cref="T:OpenQA.Selenium.ISearchContext"/> and list of <see cref="T:OpenQA.Selenium.By"/> criteria.
+            </summary>
+            <param name="searchContext">The <see cref="T:OpenQA.Selenium.ISearchContext"/> object within which to search for an element.</param>
+            <param name="bys">The list of methods by which to search for the element.</param>
+            <returns>An <see cref="T:OpenQA.Selenium.IWebElement"/> which is the first match under the desired criteria.</returns>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.PageObjects.RetryingElementLocatorFactory.LocateElements(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By})">
+            <summary>
+            Locates a list of elements using the given <see cref="T:OpenQA.Selenium.ISearchContext"/> and list of <see cref="T:OpenQA.Selenium.By"/> criteria.
+            </summary>
+            <param name="searchContext">The <see cref="T:OpenQA.Selenium.ISearchContext"/> object within which to search for elements.</param>
+            <param name="bys">The list of methods by which to search for the elements.</param>
+            <returns>An list of all elements which match the desired criteria.</returns>
+        </member>
         <member name="T:OpenQA.Selenium.Support.PageObjects.WebElementListProxy">
             <summary>
             Represents a proxy class for a list of elements to be used with the PageFactory.
             </summary>
         </member>
-        <member name="M:OpenQA.Selenium.Support.PageObjects.WebElementListProxy.#ctor(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By},System.Boolean)">
+        <member name="M:OpenQA.Selenium.Support.PageObjects.WebElementListProxy.#ctor(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By},System.Boolean,OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory)">
             <summary>
             Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.PageObjects.WebElementListProxy"/> class.
             </summary>
             <param name="searchContext">The driver used to search for elements.</param>
             <param name="bys">The list of methods by which to search for the elements.</param>
             <param name="cache"><see langword="true"/> to cache the lookup to the element; otherwise, <see langword="false"/>.</param>
+            <param name="locatorFactory">The <see cref="T:OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory"/> implementation that
+            determines how elements are located.</param>
         </member>
         <member name="M:OpenQA.Selenium.Support.PageObjects.WebElementListProxy.#ctor">
             <summary>
@@ -1221,13 +1350,15 @@
             Represents a proxy class for an element to be used with the PageFactory.
             </summary>
         </member>
-        <member name="M:OpenQA.Selenium.Support.PageObjects.WebElementProxy.#ctor(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By},System.Boolean)">
+        <member name="M:OpenQA.Selenium.Support.PageObjects.WebElementProxy.#ctor(OpenQA.Selenium.ISearchContext,System.Collections.Generic.IEnumerable{OpenQA.Selenium.By},System.Boolean,OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory)">
             <summary>
             Initializes a new instance of the <see cref="T:OpenQA.Selenium.Support.PageObjects.WebElementProxy"/> class.
             </summary>
             <param name="searchContext">The driver used to search for elements.</param>
             <param name="bys">The list of methods by which to search for the element.</param>
             <param name="cache"><see langword="true"/> to cache the lookup to the element; otherwise, <see langword="false"/>.</param>
+            <param name="locatorFactory">The <see cref="T:OpenQA.Selenium.Support.PageObjects.IElementLocatorFactory"/> implementation that
+            determines how elements are located.</param>
         </member>
         <member name="M:OpenQA.Selenium.Support.PageObjects.WebElementProxy.#ctor">
             <summary>

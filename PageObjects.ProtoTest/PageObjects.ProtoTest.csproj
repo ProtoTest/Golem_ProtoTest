@@ -66,7 +66,7 @@
     </Reference>
     <Reference Include="ProtoTest.Golem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ProtoTest.Golem.1.1.3.0\lib\net40\ProtoTest.Golem.dll</HintPath>
+      <HintPath>..\packages\ProtoTest.Golem.1.1.6.0\lib\net40\ProtoTest.Golem.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
@@ -79,21 +79,23 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver, Version=2.42.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="WebDriver, Version=2.43.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Selenium.WebDriver.2.42.0\lib\net40\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.2.43.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=2.42.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="WebDriver.Support, Version=2.43.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Selenium.Support.2.42.0\lib\net40\WebDriver.Support.dll</HintPath>
+      <HintPath>..\packages\Selenium.Support.2.43.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewPageObjects\BlogPage.cs" />
     <Compile Include="NewPageObjects\ContactPage.cs" />
     <Compile Include="NewPageObjects\Footer.cs" />
     <Compile Include="NewPageObjects\Global.cs" />
     <Compile Include="NewPageObjects\Header.cs" />
     <Compile Include="NewPageObjects\HomePage.cs" />
+    <Compile Include="NewPageObjects\LetsTalkTestingPage.cs" />
     <Compile Include="NewPageObjects\ServicesPage.cs" />
     <Compile Include="ProtoTest_Social_Blog.cs" />
     <Compile Include="ProtoTest_Company_Careers.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="ProtoTest_Services_WhitePapers.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Proxy\browsermob-proxy-2.0-beta-8-bin.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
