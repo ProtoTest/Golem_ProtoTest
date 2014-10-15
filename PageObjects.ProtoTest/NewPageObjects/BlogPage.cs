@@ -12,7 +12,7 @@ namespace PageObjects.ProtoTest.NewPageObjects
 {
     public class BlogPage : BasePageObject
     {
-        public Text BlogHeader = new Text(By.XPath("//div[@id='main']//a[contains(.,'Blog')]"));
+        public Text BlogHeader = new Text(By.XPath("//body/div[2]/div/div//*[contains(text(),'Blog')]"));
 
         public override void WaitForElements()
         {
